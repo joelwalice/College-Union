@@ -2,37 +2,49 @@ import React, { useState, useEffect } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Link from 'next/link';
-import iitImage from '../components/iit.png';
-import sastraImage from '../components/sastra.jpg';
-import nitImage from '../components/nit.png';
-import iitbImage from '../components/iitb.jpg';
+import SpaceX from '@/components/images/spacex.png';
+import Meta from '@/components/images/meta.png';
+import Netflix from '@/components/images/netflix.png';
+import Amazon from '@/components/images/amazon.jpg';
+import Google from '@/components/images/google.jpg';
+import Apple from '@/components/images/apple.jpg';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 
 const Carousel = () => {
-  const cards = [
-    {
-      title: 'IIT',
-      images: iitImage,
-    },
-    {
-      title: 'SASTRA',
-      images: sastraImage,
-    }, 
-    {
-      title: 'NIT',
-      images: nitImage,
-    }, 
-    {
-      title: 'IIT',
-      images: iitbImage,
-    },
-    {
-      title: 'IIT',
-      images: iitbImage,
-    }
-  ];
+    const cards = [
+        {
+          title: 'SpaceX',
+          images: SpaceX,
+          description : 'SpaceX is a startup ...'
+        },
+        {
+          title: 'Meta',
+          images: Meta,
+          description : 'SpaceX is a startup ...'
+        }, 
+        {
+          title: 'Apple',
+          images: Apple,
+          description : 'SpaceX is a startup ...'
+        }, 
+        {
+          title: 'Amazon',
+          images: Amazon,
+          description : 'SpaceX is a startup ...'
+        },
+        {
+          title: 'Netflix',
+          images: Netflix,
+          description : 'SpaceX is a startup ...'
+        }
+        ,{
+            title: 'Google',
+            images: Google,
+            description : 'SpaceX is a startup ...'
+          }
+      ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();

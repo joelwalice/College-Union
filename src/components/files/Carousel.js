@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
-import iitImage from '../components/iit.png';
-import sastraImage from '../components/sastra.jpg';
-import nitImage from '../components/nit.png';
-import iitbImage from '../components/iitb.jpg';
+import iitImage from '../images/iit.png';
+import sastraImage from '../images/sastra.jpg';
+import nitImage from '../images/nit.png';
+import iitbImage from '../images/iitb.jpg';
 import Image from 'next/image';
 
 const Carousel = () => {
@@ -61,7 +61,7 @@ const Carousel = () => {
             </button>
           </div>
         </div>
-        <div className={'hidden md:flex max-w-screen items-center justify-center gap-4'}>
+        <div className={'hidden md:flex w-screen items-center justify-center gap-4'}>
           <ul className={`flex transition-container transform -translate-x-${currentIndex * 25}% transition-all duration-${transitionDuration / 1000}s`}>
             {[currentIndex, currentIndex + 1, currentIndex + 2, currentIndex + 3].map((index) => (
               <li key={index} className={'p-5'}>
