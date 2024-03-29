@@ -13,6 +13,7 @@ import Invest from '@/components/files/Invest';
 import Navbar from '@/components/files/Navbar';
 
 export default function Home() {
+
   return (
     <div className="flex flex-col p-4 items-center min-w-screen">
       <Navbar />
