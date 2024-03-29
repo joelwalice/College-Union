@@ -46,7 +46,7 @@ export default class Login extends Component {
                     const loginTime = new Date().toLocaleString();
                     localStorage.setItem('loginTime', loginTime);
                     alert('Login Successful')
-                    window.location.assign(`/home`); ///${role}
+                    window.location.assign(`/home/${role}`); ///${role}
 
                 } else {
                     alert('Invalid Credentials');
