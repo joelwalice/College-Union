@@ -6,9 +6,10 @@ const bcrypt = require('bcrypt');
 
 const JWT_SECRET = "jwtsupersecret";
 
-const adminModel = require('./userData')
+const adminModel = require('./admin-data');  // Adjust the path as needed
 
 mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb.net/?retryWrites=true&w=majority&appName=Clusters')
+
 
  const app = express(); 
  app.use(cors()); 
@@ -78,6 +79,6 @@ mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb
     return handle(req, res);  // all other requests be handled by Next.js
   });
 
-  app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000');
   });
