@@ -93,13 +93,13 @@ export default class Register extends Component {
                                             <select onChange={e => this.setState({ role: e.target.value })} className='w-full rounded-md shadow-lg p-2'>
                                                 <option value="none">-NONE-</option>
                                                 <option value="sf">Startup Founder</option>
-                                                <option value="Investor">Investor</option>
-                                                <option value="Corporate">Corporate</option>
-                                                <option value="Marketing">Marketing</option>
-                                                <option value="Student">Student</option>
-                                                <option value="Club">Club</option>
-                                                <option value="Professor">Professor</option>
-                                                <option value="College">College</option>
+                                                <option value="investor">Investor</option>
+                                                <option value="corporate">Corporate</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="student">Student</option>
+                                                <option value="club">Club</option>
+                                                <option value="professor">Professor</option>
+                                                <option value="college">College</option>
                                             </select>
                                         </div>
                                     </div>

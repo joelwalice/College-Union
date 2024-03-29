@@ -50,7 +50,8 @@ export default class Login extends Component {
                     const loginTime = new Date().toLocaleString();
                     localStorage.setItem('loginTime', loginTime);
                     alert('Login Successful')
-                    window.location.assign(`/home/${role.toLowerCase()}`); ///${role}
+                    role.toLowerCase()
+                    window.location.assign(`/home/${role}`); ///${role}
 
                 } else {
                     alert('Invalid Credentials');
@@ -76,13 +77,13 @@ export default class Login extends Component {
                                     <select className='p-2 rounded-lg' onChange={e => this.setState({ role: e.target.value })}>
                                         <option value="none">-NONE-</option>
                                         <option value="sf">Startup Founder</option>
-                                        <option value="Investor">Investor</option>
-                                        <option value="Corporate">Corporate</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Student">Student</option>
-                                        <option value="Club">Club</option>
-                                        <option value="Professor">Professor</option>
-                                        <option value="College">College</option>
+                                        <option value="investor">Investor</option>
+                                        <option value="corporate">Corporate</option>
+                                        <option value="marketing">Marketing</option>
+                                        <option value="student">Student</option>
+                                        <option value="club">Club</option>
+                                        <option value="professor">Professor</option>
+                                        <option value="college">College</option>
                                     </select>
                                 </div>
                                 <button onClick={this.handleSubmit}
