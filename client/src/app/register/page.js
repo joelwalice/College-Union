@@ -49,7 +49,7 @@ export default class Register extends Component {
             alert("Password must be at least 8 characters long");
             return;
         }
-        axios.post("https://content.vercel.app/admin/register", {
+        axios.post("https://content-kappa.vercel.app/admin/register", {
             name,
             email,
             password,
