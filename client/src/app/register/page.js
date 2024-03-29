@@ -39,7 +39,7 @@ export default class Register extends Component {
             return;
         }
 
-        
+
         if (role === "none") {
             alert("Please Enter a role");
             return;
@@ -54,6 +54,11 @@ export default class Register extends Component {
             email,
             password,
             role,
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         })
             .then((response) => {
                 const data = response.data;

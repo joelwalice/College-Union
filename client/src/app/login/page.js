@@ -34,6 +34,10 @@ export default class Login extends Component {
             email,
             password,
             role
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
             .then((response) => {
                 const { data } = response;
