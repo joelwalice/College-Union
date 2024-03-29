@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 const JWT_SECRET = "jwtsupersecret";
 
-const adminModel = require('./models/userData')
+const adminModel = require('./userData')
 
 mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb.net/?retryWrites=true&w=majority&appName=Clusters')
 
