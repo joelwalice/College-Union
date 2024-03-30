@@ -18,7 +18,7 @@ import Invest from '@/components/files/Invest';
 import Navbar from '@/components/files/Navbar';
 import AI from '@/components/upskills/ai.jpeg';
 import Data from '@/components/upskills/data.jpeg';
-import DSA from '@/components/upskills/dsa.jpeg';
+import DSA from '@/components/upskills/DSA.jpeg';
 import tensor from '@/components/upskills/tensor.jpeg';
 import aif from '@/components/mutual/aif.jpeg';
 import IIT from '@/components/mutual/iit.jpeg';
