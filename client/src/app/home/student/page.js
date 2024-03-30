@@ -29,8 +29,11 @@ import AR from '@/components/domains/arvr.jpg';
 import Drone from '@/components/domains/drone.jpg';
 import Iot from '@/components/domains/iot.jpg';
 import space from '@/components/domains/space.jpg';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [nav, setNav] = useState(new Array(8).fill(false));
+  console.log(nav)
 
   return (
     <div className="flex flex-col p-4 items-center min-w-screen">
@@ -179,27 +182,23 @@ export default function Home() {
           <div className='flex flex-col items-center justify-center p-4'>
             <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">Coming Soon</h1>
             <div className='flex items-center p-4 rounded-lg bg-gray-700 min-w-screen md:m-4 gap-2'>
-              <div className='flex flex-col grid-cols-2 sm:grid-cols-4 items-center justify-center rounded-lg bg-gray-600 p-4'>
-                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">TBI Network</h2>
-                <div className='flex items-center gap-2'>
-                  <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
-                  <button className='border-0'><img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" /></button>
+              {["TBI Network", "Tech Community", "Consulting Clubs"].map((item, index) => (
+                <div key={index} className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
+                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">{item}</h2>
+                  <div className='flex items-center gap-2'>
+                    <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
+                    {nav[index] ? (
+                      <button className='border-0 bg-gray-300 rounded-lg' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
+                        <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
+                      </button>
+                    ) : (
+                      <button className='border-0 rounded-lg bg-gray-500' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
+                        <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
-                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Tech Community</h2>
-                <div className='flex items-center gap-2'>
-                  <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
-                  <button className='border-0'><img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" /></button>
-                </div>
-              </div>
-              <div className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
-                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Consulting Clubs</h2>
-                <div className='flex items-center gap-2'>
-                  <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
-                  <button className='border-0'><img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" /></button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           {/* Contact Us */}
