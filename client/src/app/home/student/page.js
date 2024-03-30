@@ -33,7 +33,6 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [nav, setNav] = useState(new Array(8).fill(false));
-  console.log(nav)
 
   return (
     <div className="flex flex-col p-4 items-center min-w-screen">
@@ -204,7 +203,7 @@ export default function Home() {
           {/* Contact Us */}
           <div className='w-screen p-4'>
             <div className='bg-gray-600 p-4 rounded-lg items-center justify-center'>
-              <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" >
+              <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" action={'https://formspree.io/f/mleqpwzr'}>
                 <div className='flex items-center justify-center gap-2'>
                   <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Name : </h2>
                   <input className="border rounded-lg shadow-lg p-4 w-1/2" type="text" name="name" placeholder="Full Name" required />
