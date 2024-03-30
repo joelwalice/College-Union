@@ -2,17 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import Link from 'next/link';
+import aif from '@/components/mutual/aif.jpeg';
+import IIT from '@/components/mutual/iit.jpeg';
+import mf from '@/components/mutual/mf.jpeg';
+import st from '@/components/mutual/st.jpeg';
+import Image from 'next/image';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
     // An array of image URLs
-    'https://plus.unsplash.com/premium_photo-1682023585793-97f171eb5bfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNoYXRib3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=870&q=80',
-    'https://plus.unsplash.com/premium_photo-1681208068652-f3d8e1e52005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGNoYXRib3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=920&q=100',
-    'https://plus.unsplash.com/premium_photo-1681380409766-792f2bbb3ffe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNoYXRib3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=920&q=120',
-    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHNhbGVzJTIwYm90fGVufDB8fDB8fHww&auto=format&fit=crop&w=870&q=80',
-    'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhdGElMjBhbmFseXNpc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    aif,st,IIT,mf
   ]
 
   const cards = [
@@ -20,20 +21,16 @@ const Carousel = () => {
     {
       title: 'AI Fund',
       details: 'Details for this Fund...',
-      r: '/gpt/1',
     },
     {
       title: 'SpaceTech Fund',
       details: 'Details for this fund...',
-      r: '/gpt/2',
     }, {
       title: 'IIT Fund',
       details: 'Details for this Fund...',
-      r: '/gpt/3',
     }, {
-      title: 'IoT Fund',
+      title: 'Mutual Fund',
       details: 'Details for this fund...',
-      r: '/gpt/4',
     }
   ];
 
@@ -71,15 +68,15 @@ const Carousel = () => {
         <div className={'hidden md:flex w-full'}>
           <ul className={`flex transition-container transform -translate-x-${currentIndex * 33.33}% transform-all duration-${transitionDuration / 1000}s`}>
             {[currentIndex, currentIndex + 1, currentIndex + 2].map((index) => (
-              <li key={index} className={'p-5 '}>
-                <div className={'rounded-lg p-5 h-full bg-gray-700 shadow-xl'}>
-                  <img src={images[index % totalImages]} alt="" className={'h-50 w-full object-cover rounded-md'} />
-                  <h2 className={'mt-2 text-2xl font-bold text-white'}>{cards[index % totalCards].title}</h2>
-                  <p className={'mt-2 text-gray-500'}>
-                    {cards[index % totalCards].details}
-                  </p>
-                  <Link href={cards[index % totalCards].r}><button className={'rounded-lg bg-blue-600 border-blue-600 shadow-md hover:shadow-lg p-2 text-white mt-2'}>Invest</button></Link>                </div>
-              </li>
+              <li key={index} className={'p-5'}>
+              <div className={'rounded-lg p-2 h-full bg-gray-700 shadow-xl flex flex-col items-center justify-center'}>
+                <Image src={images[index % totalImages]} alt="" height={300} className={'rounded-md'} />
+                <h2 className={'mt-2 text-2xl flex flex-col items-center justify-center font-bold text-white'}>{cards[index % totalCards].title}</h2>
+                <p className={'mt-2 text-md text-gray-300 p-2'}>
+                  {cards[index % totalCards].details}
+                </p>
+                <button className={'rounded-lg bg-blue-600 border-blue-600 shadow-md hover:shadow-lg p-2 text-white mt-2'}>See more</button></div>
+            </li>
             ))}
           </ul>
         </div>

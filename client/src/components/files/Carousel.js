@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import iitImage from '../images/iit.png';
-import sastraImage from '../images/sastra.jpg';
+import sastraImage from '../images/sastra.png';
 import nitImage from '../images/nit.png';
 import iitbImage from '../images/iitb.jpg';
+import iitKanpur from '../images/iitk.jpg';
 import Image from 'next/image';
 
 const Carousel = () => {
@@ -11,7 +12,7 @@ const Carousel = () => {
 
   const cards = [
     {
-      title: 'IIT',
+      title: 'IIT Madras',
       images : iitImage,
     },
     {
@@ -19,16 +20,16 @@ const Carousel = () => {
       images : sastraImage,
     }, 
     {
-      title: 'NIT',
+      title: 'NIT Trichy',
       images : nitImage,
     }, 
     {
-      title: 'IITB',
+      title: 'IIT Bombay',
       images : iitbImage,
     },
     {
-      title: 'IITB',
-      images: iitbImage,
+      title : 'IIT Kanpur',
+      images: iitKanpur,
     }
   ];
   const transitionDuration = 500;

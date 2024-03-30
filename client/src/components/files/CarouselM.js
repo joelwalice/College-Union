@@ -3,7 +3,8 @@ import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Link from 'next/link';
 import iitImage from '../images/iit.png';
-import sastraImage from '../images/sastra.jpg';
+import iitKanpur from '../images/iitk.jpg';
+import sastraImage from '../images/sastra.png';
 import nitImage from '../images/nit.png';
 import iitbImage from '../images/iitb.jpg';
 import { useRouter } from 'next/navigation';
@@ -11,26 +12,27 @@ import Image from 'next/image';
 
 
 const Carousel = () => {
+  
   const cards = [
     {
-      title: 'IIT',
-      images: iitImage,
+      title: 'IIT Madras',
+      images : iitImage,
     },
     {
       title: 'SASTRA',
-      images: sastraImage,
+      images : sastraImage,
     }, 
     {
-      title: 'NIT',
-      images: nitImage,
+      title: 'NIT Trichy',
+      images : nitImage,
     }, 
     {
-      title: 'IIT',
-      images: iitbImage,
+      title: 'IIT Bombay',
+      images : iitbImage,
     },
     {
-      title: 'IIT',
-      images: iitbImage,
+      title : 'IIT Kanpur',
+      images: iitKanpur,
     }
   ];
 
