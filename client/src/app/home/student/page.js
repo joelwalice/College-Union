@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Boat from '@/components/sponsors/boat.jpeg'
 import Cat from '@/components/sponsors/cat.jpeg'
 import Time from '@/components/sponsors/time.jpeg'
-import Magoose from '@/components/sponsors/Magoose.jpeg'
+import Magoose from '@/components/sponsors/magoose.jpeg'
 import iit from '@/components/images/iit.png';
 import nit from '@/components/images/nit.png';
 import Agency from '@/components/images/agency.png';
