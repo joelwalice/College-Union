@@ -60,6 +60,7 @@ export default function Home() {
         </div>
         {/* AI Agency */}
         <div className="p-4 flex flex-col items-center w-screen ">
+          <h1 className="text-3xl md:text-4xl font-semibold text-white">AI Franchise</h1>
           <Image src={Agency} width={1000} height={1000} className=" m-4 rounded-lg" />
         </div>
 
@@ -69,7 +70,7 @@ export default function Home() {
           <div className='hidden md:flex'><Carousel /></div>
           <div className='flex md:hidden'><CarouselM /></div>
         </div>
-        
+
         {/* Startups */}
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl md:text-4xl font-semibold text-white">Top Startups</h1>
@@ -157,57 +158,57 @@ export default function Home() {
 
           </div>
         */}
-          {/* Coming Soon */}
-          <div className='flex flex-col items-center justify-center p-4'>
-            <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">Coming Soon</h1>
-            <div className='flex items-center p-4 rounded-lg bg-gray-700 min-w-screen grid grid-cols-2 sm:grid-cols-3 md:m-4 gap-2'>
-              {["TBI Network", "Tech Community", "Consulting Clubs", "Cultural Community", "Corporate Scouting Network", "Hiring portal", "Interviews prep Community", "Competitive Exam Prep", "Common Interest community", "Dating network"].map((item, index) => (
-                <div key={index} className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
-                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">{item}</h2>
-                  <div className='flex items-center gap-2'>
-                    <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
-                    {nav[index] ? (
-                      <button className='border-0 bg-gray-300 rounded-lg' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
-                        <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
-                      </button>
-                    ) : (
-                      <button className='border-0 rounded-lg bg-gray-500' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
-                        <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
-                      </button>
-                    )}
-                  </div>
+        {/* Coming Soon */}
+        <div className='flex flex-col items-center justify-center p-4'>
+          <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">Coming Soon</h1>
+          <div className='flex items-center p-4 rounded-lg bg-gray-700 w-screen grid grid-cols-2 sm:grid-cols-3 md:m-4 gap-4'>
+            {["TBI Network", "Tech Community", "Consulting Clubs", "Cultural Community", "Corporate Scouting Network", "Hiring portal", "Interviews prep Community", "Competitive Exam Prep", "Common Interest community", "Dating network", "Student Counselling", "Legal Network"].map((item, index) => (
+              <div key={index} className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
+                <h2 className="m-2 text-2xl md:text-2xl font-semibold text-white">{item}</h2>
+                <div className='flex items-center justify-center gap-4'>
+                  <button className='bg-blue-500 text-white p-2 border-0 rounded-lg'>Early Regs</button>
+                  {nav[index] ? (
+                    <button className='border-0 bg-gray-300 rounded-lg' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
+                      <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
+                    </button>
+                  ) : (
+                    <button className='border-0 rounded-lg bg-gray-500' onClick={() => setNav(prevNav => prevNav.map((val, i) => i === index ? !val : val))}>
+                      <img width="32" height="32" src="https://img.icons8.com/emoji/48/red-heart.png" alt="red-heart" />
+                    </button>
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-          {/* Contact Us */}
-          <div className='w-screen p-4'>
- <h1 className="text-3xl md:text-4xl font-semibold text-white flex items-center justify-center">Contact Us</h1>
-            <div className='bg-gray-600 p-4 rounded-lg items-center justify-center'>
-              <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" action={'https://formspree.io/f/mleqpwzr'}>
-                <div className='flex items-center justify-center gap-2'>
-                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Name : </h2>
-                  <input className="border rounded-lg shadow-lg p-4 w-1/2" type="text" name="name" placeholder="Full Name" required />
-                </div>
-                <div className='flex items-center justify-center gap-2'>
-                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Email : </h2>
-                  <input className="border rounded-lg shadow-lg p-4 w-1/2" type="email" name="email" placeholder="Email" required />
-                </div>
-                <div className='flex items-center justify-center gap-2'>
-                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Phone : </h2>
-                  <input className="border rounded-lg shadow-lg w-1/2 p-4" type="text" name="phone" placeholder="Phone" required />
-                </div>
-                <div className='flex items-center justify-center gap-2'>
-                  <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Details: </h2>
-                  <textarea className="border rounded-lg shadow-lg p-4 w-1/2" type="text" placeholder="Budget" required></textarea>
-                </div>
-                <div className="flex items-center justify-center">
-                  <input className="border cursor-pointer border-indigo-600 rounded-lg shadow-lg p-5 bg-indigo-600 text-white" type="submit" value="Submit" />
-                </div>
-              </form>
-            </div>
+        </div>
+        {/* Contact Us */}
+        <div className='w-screen p-4'>
+          <h1 className="text-3xl md:text-4xl font-semibold text-white flex items-center justify-center">Contact Us</h1>
+          <div className='bg-gray-600 p-4 rounded-lg items-center justify-center'>
+            <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" action={'https://formspree.io/f/mleqpwzr'}>
+              <div className='flex items-center justify-center gap-2'>
+                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Name : </h2>
+                <input className="border rounded-lg shadow-lg p-4 w-1/2" type="text" name="name" placeholder="Full Name" required />
+              </div>
+              <div className='flex items-center justify-center gap-2'>
+                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Email : </h2>
+                <input className="border rounded-lg shadow-lg p-4 w-1/2" type="email" name="email" placeholder="Email" required />
+              </div>
+              <div className='flex items-center justify-center gap-2'>
+                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Phone : </h2>
+                <input className="border rounded-lg shadow-lg w-1/2 p-4" type="text" name="phone" placeholder="Phone" required />
+              </div>
+              <div className='flex items-center justify-center gap-2'>
+                <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Details: </h2>
+                <textarea className="border rounded-lg shadow-lg p-4 w-1/2" type="text" placeholder="Budget" required></textarea>
+              </div>
+              <div className="flex items-center justify-center">
+                <input className="border cursor-pointer border-indigo-600 rounded-lg shadow-lg p-5 bg-indigo-600 text-white" type="submit" value="Submit" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
   );
 }

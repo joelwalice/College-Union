@@ -12,34 +12,28 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cards = [
     {
-      title: 'SpaceX',
+      title: 'CRED',
       images: SpaceX,
-      description : 'SpaceX is a startup ...'
     },
     {
-      title: 'Meta',
+      title: 'Meesho',
       images: Meta,
-      description : 'SpaceX is a startup ...'
     }, 
     {
-      title: 'Apple',
+      title: 'PharmEasy',
       images: Apple,
-      description : 'SpaceX is a startup ...'
     }, 
     {
-      title: 'Amazon',
+      title: 'Razorpay',
       images: Amazon,
-      description : 'SpaceX is a startup ...'
     },
     {
-      title: 'Netflix',
+      title: 'Shopsy',
       images: Netflix,
-      description : 'SpaceX is a startup ...'
     }
     ,{
-        title: 'Google',
+        title: 'Digit Insurance',
         images: Google,
-        description : 'SpaceX is a startup ...'
       }
   ];
   const transitionDuration = 500;
@@ -77,11 +71,8 @@ const Carousel = () => {
             {[currentIndex, currentIndex + 1, currentIndex + 2, currentIndex + 3].map((index) => (
               <li key={index} className={'p-5'}>
                 <div className={'rounded-lg h-full bg-gray-700 shadow-xl p-5'}>
-                  <Image src={cards[index % totalCards].images} alt="" width="100" height="100" className={'h-50 w-full object-cover rounded-full p-4'} />
+                <Image src={cards[index % totalCards].images} alt="" height={500} className={'rounded-md'} />
                   <h1 className={'mt-2 flex items-center justify-center text-xl font-bold text-white'}>{cards[index % totalCards].title}</h1>
-                  <p className={'mt-2 text-gray-500'}>
-                    {cards[index % totalCards].description}
-                  </p>
                 </div>
               </li>
             ))}
