@@ -182,7 +182,7 @@ export default function Home() {
           {/* Contact Us */}
           <div className='w-screen p-4'>
             <div className='bg-gray-600 p-4 rounded-lg items-center justify-center'>
-          <h1 className="text-3xl md:text-4xl font-semibold text-white">Sponsors</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold text-white">Contact Us</h1>
               <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" action={'https://formspree.io/f/mleqpwzr'}>
                 <div className='flex items-center justify-center gap-2'>
                   <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Name : </h2>
