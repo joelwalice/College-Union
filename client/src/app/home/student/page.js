@@ -32,7 +32,7 @@ import space from '@/components/domains/space.jpg';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [nav, setNav] = useState(new Array(8).fill(false));
+  const [nav, setNav] = useState(new Array(11).fill(false));
 
   return (
     <div className="flex flex-col p-4 items-center min-w-screen">
@@ -47,7 +47,7 @@ export default function Home() {
               <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">Boat</h1>
             </div><div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
               <Image src={Magoose} />
-              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">Magoose</h1>
+              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">Magoosh</h1>
             </div><div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
               <Image src={Time} />
               <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">TIME Institute</h1>
