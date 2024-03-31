@@ -69,28 +69,7 @@ export default function Home() {
           <div className='hidden md:flex'><Carousel /></div>
           <div className='flex md:hidden'><CarouselM /></div>
         </div>
-        {/* Advertisements */}
-        <div className=" flex flex-col items-center w-screen">
-          <h1 className="text-3xl md:text-4xl font-semibold text-white">Advertisements</h1>
-          <div className="grid flex grid-cols-2 sm:grid-cols-4 items-center justify-center gap-5 m-4">
-            <div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
-              <Image src={iit} width="100" height="100" />
-              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">IIT Madras</h1>
-            </div>
-            <div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
-              <Image src={sastra} width="100" height="100" className="rounded-full" />
-              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">SASTRA</h1>
-            </div>
-            <div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
-              <Image src={nit} width="100" height="100" className="rounded-full" />
-              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">NIT Trichy</h1>
-            </div>
-            <div className="p-4 shadow-lg flex flex-col justify-center items-center bg-gray-800 rounded-lg">
-              <Image src={iitb} width="100" height="100" className="rounded-full" />
-              <h1 className="text-xl md:text-3xl p-4 font-semibold text-white">IIT Bombay</h1>
-            </div>
-          </div>
-        </div>
+        
         {/* Startups */}
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl md:text-4xl font-semibold text-white">Top Startups</h1>
