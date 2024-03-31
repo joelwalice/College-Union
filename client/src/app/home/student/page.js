@@ -4,11 +4,7 @@ import Boat from '@/components/sponsors/boat.jpeg'
 import Cat from '@/components/sponsors/cat.jpeg'
 import Time from '@/components/sponsors/time.jpeg'
 import Magoose from '@/components/sponsors/magoose.jpeg'
-import iit from '@/components/images/iit.png';
-import nit from '@/components/images/nit.png';
 import Agency from '@/components/images/agency.png';
-import sastra from '@/components/images/sastra.png';
-import iitb from '@/components/images/iitb.jpg';
 import Carousel from "@/components/files/Carousel";
 import CarouselM from '@/components/files/CarouselM';
 import Internship from '@/components/files/Internships';
