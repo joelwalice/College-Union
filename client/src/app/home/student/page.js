@@ -134,7 +134,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-4xl font-semibold text-white">Startup Mutual Fund</h1>
           <div><Invest /></div>
         </div>
-        {/* College Counsellor */}
+        {/* College Counsellor
         <div className="flex flex-col items-center w-screen">
           <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">College Counsellors</h1>
           <div className="flex items-center justify-between gap-5">
@@ -156,6 +156,7 @@ export default function Home() {
             </div>
 
           </div>
+        */}
           {/* Coming Soon */}
           <div className='flex flex-col items-center justify-center p-4'>
             <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">Coming Soon</h1>
