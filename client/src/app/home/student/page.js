@@ -160,7 +160,7 @@ export default function Home() {
           <div className='flex flex-col items-center justify-center p-4'>
             <h1 className="m-4 text-3xl md:text-4xl font-semibold text-white">Coming Soon</h1>
             <div className='flex items-center p-4 rounded-lg bg-gray-700 min-w-screen grid grid-cols-2 sm:grid-cols-3 md:m-4 gap-2'>
-              {["TBI Network", "Tech Community", "Consulting Clubs", "Tech Agency Franchise", "Cultural Community", "Corporate Scouting Network", "Hiring portal", "Interviews prep Community", "Competitive Exam Prep", "Common Interest community", "Dating network"].map((item, index) => (
+              {["TBI Network", "Tech Community", "Consulting Clubs", "Cultural Community", "Corporate Scouting Network", "Hiring portal", "Interviews prep Community", "Competitive Exam Prep", "Common Interest community", "Dating network"].map((item, index) => (
                 <div key={index} className='flex flex-col items-center justify-center rounded-lg bg-gray-600 p-4'>
                   <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">{item}</h2>
                   <div className='flex items-center gap-2'>
@@ -181,8 +181,8 @@ export default function Home() {
           </div>
           {/* Contact Us */}
           <div className='w-screen p-4'>
+ <h1 className="text-3xl md:text-4xl font-semibold text-white flex items-center justify-center">Contact Us</h1>
             <div className='bg-gray-600 p-4 rounded-lg items-center justify-center'>
-          <h1 className="text-3xl md:text-4xl font-semibold text-white">Contact Us</h1>
               <form className="flex flex-col justify-center min-w-screen gap-5" method="POST" action={'https://formspree.io/f/mleqpwzr'}>
                 <div className='flex items-center justify-center gap-2'>
                   <h2 className="m-4 text-2xl md:text-2xl font-semibold text-white">Name : </h2>
