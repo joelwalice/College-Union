@@ -45,13 +45,14 @@ export default class Login extends Component {
                 if (data.status === 'Success') {
                     localStorage.setItem('token', data.data.token);
                     localStorage.setItem('name', data.data.name);
+                    localStorage.setItem('new', data.data.new);
                     localStorage.setItem('loggedIn', true);
                     localStorage.setItem('role', role);
                     const loginTime = new Date().toLocaleString();
                     localStorage.setItem('loginTime', loginTime);
                     alert('Login Successful')
                     role.toLowerCase()
-                    window.location.assign(`/home/${role}`); ///${role}
+                    window.location.assign(`/home/${role}`);
 
                 } else {
                     alert('Invalid Credentials');
@@ -76,7 +77,7 @@ export default class Login extends Component {
                                     <input className='p-2 outline outline-1 rounded outline-black' type="password" name='password' placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} />
                                     <select className='p-2 rounded-lg' onChange={e => this.setState({ role: e.target.value })}>
                                         <option value="none">-NONE-</option>
-                                        <option value="sf">Startup Founder</option>
+                                        <option value="startup">Startup</option>
                                         <option value="investor">Investor</option>
                                         <option value="corporate">Corporate</option>
                                         <option value="marketing">Marketing</option>

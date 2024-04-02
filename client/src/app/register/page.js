@@ -92,7 +92,7 @@ export default class Register extends Component {
                                         <div className="flex gap-2 p-2 items-center">
                                             <select onChange={e => this.setState({ role: e.target.value })} className='w-full rounded-md shadow-lg p-2'>
                                                 <option value="none">-NONE-</option>
-                                                <option value="sf">Startup Founder</option>
+                                                <option value="startup">Startup</option>
                                                 <option value="investor">Investor</option>
                                                 <option value="corporate">Corporate</option>
                                                 <option value="marketing">Marketing</option>

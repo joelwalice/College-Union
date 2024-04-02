@@ -3,10 +3,15 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-
+const next = require('next')
+const dev = process.env.NODE_ENV !== 'production';
 const JWT_SECRET = "jwtsupersecret";
 
-const adminModel = require('./admin-data');  // Adjust the path as needed
+const nextApp = next({ dev });
+const handle = nextApp.getRequestHandler();
+
+const adminModel = require('./models/admin-data');
+const startupModel = require('./models/startup-data')
 
 mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb.net/?retryWrites=true&w=majority&appName=Clusters')
 
@@ -38,6 +43,7 @@ mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb
         name: user.name,
         role: user.role,
         email: user.email,
+        new : user.new,
     }});
 });
 
@@ -58,6 +64,11 @@ mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb
     }
   });
   
+  app.post('/admin/startup', async(req,res) => {
+    const {sname, domain,oneline,fundstatus, desc, futureplan, revenue, website, linkedIn, size, fname, phone, email, linkedin, college, dept, year} = req.body
+    const data = await startupModel.create({sname, domain,oneline,fundstatus, desc, futureplan, revenue, website, linkedIn, size, fname, phone, email, linkedin, college, dept, year})
+    res.send({Status : "Success", data:data})
+  })
 
   app.get('/admin/user', async (req, res) => {
     const { token } = req.body;
@@ -79,6 +90,7 @@ mongoose.connect('mongodb+srv://joelwalice:Joel19leema!@clusters.0xolofw.mongodb
     return handle(req, res);  // all other requests be handled by Next.js
   });
 
-  app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+  app.listen(1337, () => {
+    console.log('Server is running on port 1337');
   });
+
