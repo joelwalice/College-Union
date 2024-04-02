@@ -45,6 +45,7 @@ export default class Login extends Component {
                 if (data.status === 'Success') {
                     localStorage.setItem('token', data.data.token);
                     localStorage.setItem('name', data.data.name);
+                    localStorage.setItem('email', data.data.email);
                     localStorage.setItem('new', data.data.new);
                     localStorage.setItem('loggedIn', true);
                     localStorage.setItem('role', role);
