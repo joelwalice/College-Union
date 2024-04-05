@@ -31,10 +31,7 @@ export default class Login extends Component {
         }
 
         try {
-            if(!BASE_URL){
-                return null;
-              }
-            const data = await fetch(`${BASE_URL}/api/users/login`, {
+            const data = await fetch(`/api/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
