@@ -1,6 +1,6 @@
 "use client"
 import React, { Component } from 'react'
-import axios from 'axios';
+import {BASE_URL} from '../../../utils/constants.js';
 
 export default class Register extends Component {
     constructor(props) {
@@ -51,7 +51,10 @@ export default class Register extends Component {
         }
 
         try {
-            const data = await fetch('/api/users', {
+            if(!BASE_URL){
+                return null;
+              }
+            const data = await fetch(`${BASE_URL}/api/users`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

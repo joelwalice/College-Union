@@ -1,5 +1,6 @@
 "use client"
 import React, { Component } from 'react';
+import {BASE_URL} from '../../../utils/constants';
 
 export default class Login extends Component {
     constructor(props) {
@@ -30,7 +31,10 @@ export default class Login extends Component {
         }
 
         try {
-            const data = await fetch('/api/users/login', {
+            if(!BASE_URL){
+                return null;
+              }
+            const data = await fetch(`${BASE_URL}/api/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

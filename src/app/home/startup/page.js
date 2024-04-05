@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/files/Navbar';
+import {BASE_URL} from '../../../../utils/constants';
 
 const page = () => {
   const [log, setLog] = useState('');
@@ -28,7 +29,10 @@ const page = () => {
   const send = async (e) => {
     e.preventDefault(); // Add parentheses to call the preventDefault method
     try {
-      const data = await fetch('/api/users/startup',{
+      if(!BASE_URL){
+        return null;
+      }
+      const data = await fetch(`${BASE_URL}/api/users/startup`,{
         method: 'POST',
         body: JSON.stringify({
           user : email,
@@ -52,7 +56,8 @@ const page = () => {
       })
       console.log(data)
       if(data.status === 201){
-        const datas = await fetch('/api/users',{
+        const datas = await fetch(`${BASE_URL}/api/users`,{
+
           method: 'PATCH',
           body: JSON.stringify({email, news})
         })
