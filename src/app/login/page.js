@@ -1,6 +1,5 @@
 "use client"
 import React, { Component } from 'react';
-import axios from 'axios';
 
 export default class Login extends Component {
     constructor(props) {
@@ -14,14 +13,14 @@ export default class Login extends Component {
     }
 
     componentDidMount() {
-        const loggedIn = localStorage.getItem("loggedIn");
+        const isloggedIn = localStorage.getItem("isloggedIn");
         const role = localStorage.getItem("role");
-        if (loggedIn === "true") {
+        if (isloggedIn === "true") {
             window.location.href = `/home/${role}`;
         }
     }
 
-    handleSubmit(e) {
+    handleSubmit = async (e) => {
         e.preventDefault();
         const { email, password, role } = this.state;
 
@@ -30,40 +29,40 @@ export default class Login extends Component {
             return;
         }
 
-        axios.post('https://content-lime.vercel.app/admin/login', {
-            email,
-            password,
-            role
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((response) => {
-                const { data } = response;
-                console.log("Response Data: ", data);
-                if (data.status === 'Success') {
-                    localStorage.setItem('token', data.data.token);
-                    localStorage.setItem('name', data.data.name);
-                    localStorage.setItem('email', data.data.email);
-                    localStorage.setItem('new', data.data.new);
-                    localStorage.setItem('loggedIn', true);
-                    localStorage.setItem('role', role);
-                    const loginTime = new Date().toLocaleString();
-                    localStorage.setItem('loginTime', loginTime);
-                    alert('Login Successful')
-                    role.toLowerCase()
-                    window.location.assign(`/home/${role}`);
-
-                } else {
-                    alert('Invalid Credentials');
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                alert('Check the Role and Password.');
+        try {
+            const data = await fetch('/api/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email, password, role
+                }),
             });
+
+            if (data.status === 201) {
+                const datas = await data.json();
+                console.log(datas)
+                localStorage.setItem('token', datas.data.token);
+                localStorage.setItem('name', datas.data.name);
+                localStorage.setItem('email', datas.data.email);
+                localStorage.setItem('new', datas.data.new);
+                localStorage.setItem('isloggedIn', "true");
+                localStorage.setItem('role', role);
+                const loginTime = new Date().toLocaleString();
+                localStorage.setItem('loginTime', loginTime);
+                alert('Login Successful');
+                role.toLowerCase();
+                window.location.assign(`/home/${role}`);
+            } else {
+                alert('Invalid Credentials');
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert('Check the Role and Password.');
+        }
     }
+
     render() {
         return (
             <>
@@ -96,7 +95,6 @@ export default class Login extends Component {
                                     <h3 className='text-center text-gray-500'>OR</h3>
                                     <p className='text-gray-500'> --------</p>
                                 </div>
-
                             </form>
                             <div className='flex justify-center items-center gap-4'>
                                 <button onClick={() => {

@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
+import {Schema, models, model} from "mongoose";
 
-const Schema = mongoose.Schema
-
-const startup = new Schema({
+const Startup = new Schema({
+    user: String,
     sname : String,
     domain : String,
     oneline : String,
@@ -16,11 +15,11 @@ const startup = new Schema({
     fname : String,
     phone : String,
     email : String,
-    linkedin : String,
     college : String,
     dept : String,
     year : String
 })
 
-const startup_model = mongoose.model('startup-data', startup);
-module.exports = startup_model
+const startup = models.startup || model('startup', Startup);
+
+export default startup;

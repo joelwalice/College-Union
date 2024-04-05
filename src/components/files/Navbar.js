@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const signOut = () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('isloggedIn');
         window.location.href = '/login';
     };
     return (

@@ -1,11 +1,12 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/files/Navbar';
-import axios from 'axios';
 
 const page = () => {
   const [log, setLog] = useState('');
+  const [role, setRole] = useState('');
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [news, setNews] = useState('');
   const [year, setYear] = useState('');
   const [dept, setDept] = useState('');
@@ -23,14 +24,15 @@ const page = () => {
   const [revenue, setRevenue] = useState('');
   const [website, setWebsite] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
-
+  
   const send = async (e) => {
     e.preventDefault(); // Add parentheses to call the preventDefault method
-
     try {
-      // Make a POST request to send form data
-      await axios.post('http://localhost:1337/admin/startup', {
-        sname,
+      const data = await fetch('/api/users/startup',{
+        method: 'POST',
+        body: JSON.stringify({
+          user : email,
+          sname,
         domain,
         oneline,
         fundstatus,
@@ -46,12 +48,20 @@ const page = () => {
         college,
         dept,
         year
-      })
-        .then(() => {
-          const newData = false;
-          axios.put('http://localhost:1337/admin/register',{email, newData});
         })
-
+      })
+      console.log(data)
+      if(data.status === 201){
+        const datas = await fetch('/api/users',{
+          method: 'PATCH',
+          body: JSON.stringify({email, news})
+        })
+        console.log(datas)
+        if(datas.status === 200){
+          localStorage.setItem('new', false)
+          window.location.href=`/home/${role}`
+        }
+      }
     } catch (error) {
       console.error('Error:', error);
     }
@@ -59,13 +69,19 @@ const page = () => {
 
 
   useEffect(() => {
-    if (localStorage.getItem('new')) {
+    if(localStorage.getItem('role')){
+      setRole(localStorage.getItem('role'));
+    }
+    if(localStorage.getItem('name')){
+      setName(localStorage.getItem('name'));
+    }
+    if (localStorage.getItem('new') && localStorage.getItem('new') !== "undefined") {
       setNews(localStorage.getItem('new'));
     }
-    if(localStorage.getItem('email')){
+    if(localStorage.getItem('email') && localStorage.getItem('email') !== "undefined"){
       setEmail(localStorage.getItem('email'))
     }
-    if (localStorage.getItem('token') && localStorage.getItem('role') === 'startup') setLog(localStorage.getItem('token'));
+    if (localStorage.getItem('token') && localStorage.getItem('role') === 'startup' && localStorage.getItem('token') !== "undefined" && localStorage.getItem('isloggedIn') === "true") setLog(localStorage.getItem('token'));
     else window.location.href = '/login'
   })
 
@@ -74,7 +90,7 @@ const page = () => {
     <div className="flex flex-col p-4 items-center min-w-screen">
       <Navbar />
       {
-        news ?
+        news === "true" ?
           <div>
             <div className='flex flex-col items-center justify-center min-w-screen'>
               <h1 className="text-4xl md:text-5xl text-white lg:text-6xl font-semibold text-center p-4">
@@ -233,7 +249,13 @@ const page = () => {
               </form>
 
             </div>
-          </div> : <div>No Form</div>
+          </div> : <div>
+            <div className='w-screen flex flex-col justify-center text-white p-4'>
+              <div className='flex items-center'>Welcome <p className='flex text-red-400'> {name.toUpperCase()}</p></div>
+              <div className='flex items-center'>Email : <p className='flex text-red-400'>{email}</p></div>
+              
+            </div>
+          </div>
       }
     </div>
   )

@@ -16,6 +16,13 @@ export default function Home() {
     }
   }, [router]);
 
+  const but = async() => {
+    await fetch('/api/hello',{
+      method:'POST',
+      body: JSON.stringify({hello: "World"}),
+    })
+  }
+
   return (
     <div>
       <title>Welcome Page</title>
@@ -25,6 +32,7 @@ export default function Home() {
           <Link href="/login">
             <button className='bg-white p-4 rounded-lg text-xl font-semibold text-red-500 hover:bg-red-500 hover:text-white hover:scale-105 duration-500'>Login</button>
           </Link>
+          <button onClick={but}> Click me</button>
         </div>
       </div>
     </div>

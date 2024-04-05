@@ -10,12 +10,13 @@ export default class Register extends Component {
             email: '',
             password: '',
             cpassword: '',
-            role: ''
+            role: '',
+            new: true,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         const { name, email, password, cpassword, role } = this.state;
 
@@ -39,7 +40,6 @@ export default class Register extends Component {
             return;
         }
 
-
         if (role === "none") {
             alert("Please Enter a role");
             return;
@@ -49,29 +49,22 @@ export default class Register extends Component {
             alert("Password must be at least 8 characters long");
             return;
         }
-        axios.post("https://content-lime.vercel.app/admin/register", {
-            name,
-            email,
-            password,
-            role,
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then((response) => {
-                const data = response.data;
-                console.log(data, "user");
-                if (data.Status === "Success") {
-                    alert("Register Successful");
-                    window.location.href = "/login";
-                }
-            })
-            .catch((error) => {
-                // Handle the error
-                console.error("Error:", error);
+
+        try {
+            const data = await fetch('/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ name, email, password, role, new: true })
             });
+            if (data.status === 201) {
+                window.location.href = "/login";
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
     render() {
         return (
