@@ -17,7 +17,6 @@ const Carousel = () => {
   ]
 
   const cards = [
-    // An array of card objects with different titles, details, and URLs
     {
       title: 'AI Fund',
       details: 'Details for this Fund...',
