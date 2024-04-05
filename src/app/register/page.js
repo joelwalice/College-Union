@@ -54,7 +54,7 @@ export default class Register extends Component {
             if(!BASE_URL){
                 console.log('hello');
               }
-            const data = await fetch(`${process.env.BASE_URL}/api/users`, {
+            const data = await fetch(`${BASE_URL}/api/users`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
