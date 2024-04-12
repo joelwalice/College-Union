@@ -37,21 +37,21 @@ const page = () => {
         body: JSON.stringify({
           user : email,
           sname,
-        domain,
-        oneline,
-        fundstatus,
-        desc,
-        futureplan,
-        revenue,
-        website,
-        linkedIn,
-        size,
-        fname,
-        phone,
-        femail,
-        college,
-        dept,
-        year
+          domain,
+          oneline,
+          fundstatus,
+          desc,
+          futureplan,
+          revenue,
+          website,
+          linkedIn,
+          size,
+          fname,
+          phone,
+          femail,
+          college,
+          dept,
+          year
         })
       })
       console.log(data)

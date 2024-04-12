@@ -56,7 +56,7 @@ export default class Login extends Component {
                 role.toLowerCase();
                 window.location.assign(`/home/${role}`);
             } else {
-                alert('No User. Check once');
+                alert('Check once');
             }
         } catch (error) {
             console.error("Error:", error);
