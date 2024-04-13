@@ -258,7 +258,6 @@ const page = () => {
             <div className='w-screen flex flex-col justify-center text-white p-4'>
               <div className='flex items-center'>Welcome <p className='flex text-red-400'> {name.toUpperCase()}</p></div>
               <div className='flex items-center'>Email : <p className='flex text-red-400'>{email}</p></div>
-              
             </div>
           </div>
       }
