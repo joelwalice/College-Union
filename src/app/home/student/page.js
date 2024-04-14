@@ -25,7 +25,9 @@ import AR from '@/components/domains/arvr.jpg';
 import Drone from '@/components/domains/drone.jpg';
 import Iot from '@/components/domains/iot.jpg';
 import space from '@/components/domains/space.jpg';
+import Jobs from '@/components/files/Job';
 import { useEffect, useState } from 'react';
+import Professors from '../../../components/files/Professors';
 
 export default function Home() {
   const [nav, setNav] = useState(new Array(11).fill(false));
@@ -98,6 +100,21 @@ export default function Home() {
               <h1 className="text-2xl md:text-3xl font-semibold text-white">Drones</h1>
             </div>
           </div>
+        </div>
+        {/* Internships */}
+        <div className="flex flex-col items-center justify-center m-4">
+          <h1 className="text-3xl md:text-4xl font-semibold text-white p-4 ">Top Internships</h1>
+          <div><Jobs /></div>
+        </div>
+        {/* Professor Startup */}
+        <div className="flex flex-col items-center justify-center m-4">
+          <h1 className="text-3xl md:text-4xl font-semibold text-white p-4 ">Professor's Startup</h1>
+          <div><Professors /></div>
+        </div>
+        {/* Alumni Startup */}
+        <div className="flex flex-col items-center justify-center m-4">
+          <h1 className="text-3xl md:text-4xl font-semibold text-white p-4 ">Alumni's Startup</h1>
+          <div><Professors /></div>
         </div>
         {/* Top Investors */}
         <div className="flex flex-col items-center justify-center p-4 m-4">
