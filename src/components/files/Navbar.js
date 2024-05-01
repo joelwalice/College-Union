@@ -8,8 +8,8 @@ const Navbar = () => {
     const [nav, setNav] = useState(false);
 
     const signOut = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('isloggedIn');
+        Cookies.remove('isloggedIn');
+        Cookies.remove('token');
         window.location.href = '/login';
     };
     return (
@@ -75,7 +75,7 @@ const Navbar = () => {
                 </div>
             </div>}
             <div className='flex items-center justify-between w-screen max-h-[100px] bg-gray-800 text-white p-4 shadow-lg'>
-                <Link href="/home/student"><Image src={Logo} width={300} className='flex rounded-lg'/></Link>
+                <Link href="/home/student"><Image src={Logo} width={300} className='flex rounded-lg' /></Link>
                 <div className='flex items-center justify-center gap-4'>
                     <button className='bg-gray-200 text-blue-900 hover:shadow-lg shadow-md shadow-gray-800 hover:shadow-gray-600 border-0 rounded-lg font-semibold'>Shop Now</button>
                     <button className='bg-gray-200 text-blue-900 hover:shadow-lg shadow-md shadow-gray-800 hover:shadow-gray-600 border-0 rounded-lg font-semibold'>Contact us</button>

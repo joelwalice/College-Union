@@ -1,6 +1,7 @@
 "use client"
 import React, { Component } from 'react';
 import {BASE_URL} from '../../../utils/constants';
+import Cookies from 'js-cookie';
 
 export default class Login extends Component {
     constructor(props) {
@@ -14,8 +15,8 @@ export default class Login extends Component {
     }
 
     componentDidMount() {
-        const isloggedIn = localStorage.getItem("isloggedIn");
-        const role = localStorage.getItem("role");
+        const isloggedIn = Cookies.get("isloggedIn");
+        const role = Cookies.set("role");
         if (isloggedIn === "true") {
             window.location.href = `/home/${role}`;
         }
@@ -44,14 +45,14 @@ export default class Login extends Component {
             if (data.status === 201) {
                 const datas = await data.json();
                 console.log(datas)
-                localStorage.setItem('token', datas.data.token);
-                localStorage.setItem('name', datas.data.name);
-                localStorage.setItem('email', datas.data.email);
-                localStorage.setItem('new', datas.data.new);
-                localStorage.setItem('isloggedIn', "true");
-                localStorage.setItem('role', role);
+                Cookies.set('token', datas.data.token);
+                Cookies.set('name', datas.data.name);
+                Cookies.set('email', datas.data.email);
+                Cookies.set('new', datas.data.new);
+                Cookies.set('isloggedIn', "true");
+                Cookies.set('role', role);
                 const loginTime = new Date().toLocaleString();
-                localStorage.setItem('loginTime', loginTime);
+                Cookies.set('loginTime', loginTime);
                 alert('Login Successful');
                 role.toLowerCase();
                 window.location.assign(`/home/${role}`);

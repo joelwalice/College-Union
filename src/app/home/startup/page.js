@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/files/Navbar';
 import {BASE_URL} from '../../../../utils/constants';
+import Cookies from 'js-cookie';
 
 const page = () => {
   const [log, setLog] = useState('');
@@ -63,7 +64,7 @@ const page = () => {
         })
         console.log(datas)
         if(datas.status === 200){
-          localStorage.setItem('new', false)
+          Cookies.set('new', false)
           window.location.href=`/home/${role}`
         }
       }
@@ -74,25 +75,25 @@ const page = () => {
 
 
   useEffect(() => {
-    if(localStorage.getItem('role')){
-      setRole(localStorage.getItem('role'));
+    if(Cookies.get('role')){
+      setRole(Cookies.get('role'));
     }
-    if(localStorage.getItem('name')){
-      setName(localStorage.getItem('name'));
+    if(Cookies.get('name')){
+      setName(Cookies.get('name'));
     }
-    if (localStorage.getItem('new') && localStorage.getItem('new') !== "undefined") {
-      setNews(localStorage.getItem('new'));
+    if (Cookies.get('new') && Cookies.get('new') !== "undefined") {
+      setNews(Cookies.get('new'));
     }
-    if(localStorage.getItem('email') && localStorage.getItem('email') !== "undefined"){
-      setEmail(localStorage.getItem('email'))
+    if(Cookies.get('email') && Cookies.get('email') !== "undefined"){
+      setEmail(Cookies.get('email'))
     }
-    if (localStorage.getItem('token') && localStorage.getItem('role') === 'startup' && localStorage.getItem('token') !== "undefined" && localStorage.getItem('isloggedIn') === "true") setLog(localStorage.getItem('token'));
+    if (Cookies.get('token') && Cookies.get('role') === 'startup' && Cookies.get('token') !== "undefined" && Cookies.get('isloggedIn') === "true") setLog(Cookies.get('token'));
     else window.location.href = '/login'
   })
 
 
   return (
-    <div className="flex flex-col p-4 items-center min-w-screen">
+    <div className="flex flex-col items-center min-w-screen">
       <Navbar />
       {
         news === "true" ?
